@@ -1,9 +1,9 @@
 
-
-
 binary_operator STANDARD_OPS[] = {
 	{.op = "**", .prec = 1, .func = func_mul_mul},
-	{.op = "++", .prec = 0, .func = func_add_add}
+	{.op = "++", .prec = 0, .func = func_add_add},
+	{.op = "*", .prec = 1, .func = func_mul},
+	{.op = "+", .prec = 0, .func = func_add}
 };
 
 int STANDARD_OPS_SIZE = sizeof(STANDARD_OPS)/sizeof(binary_operator);
