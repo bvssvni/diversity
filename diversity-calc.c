@@ -2,8 +2,10 @@
 binary_operator STANDARD_OPS[] = {
 	{.op = "++-", .prec = 0, .func = func_sub_sub},
 	{.op = "**", .prec = 1, .func = func_mul_mul},
+	{.op = "//", .prec = 1, .func = func_div_div},
 	{.op = "++", .prec = 0, .func = func_add_add},
 	{.op = "*", .prec = 1, .func = func_mul},
+	{.op = "/", .prec = 1, .func = func_div},
 	{.op = "+", .prec = 0, .func = func_add},
 	{.op = "-", .prec = 0, .func = func_sub}
 };
@@ -56,7 +58,8 @@ int calc(char* expr, int argc, double_arr argv[], int *resc, double resv[])
 		#if DEBUG
 		printf("Rest stack index %i\r\n", data.stack_index);
 		#endif
-		calc_do_operation(&data);
+		error = calc_do_operation(&data);
+		if (error > 0) return error;
 	}
 	
 	memcpy(resv, data.buffer, data.buffer_index * sizeof(double));

@@ -14,6 +14,7 @@
 #define STATE_INDEX_RESET 0
 
 #define ERROR_BUFFER_OVERFLOW 1
+#define ERROR_DIVIDING_BY_ZERO 2
 
 typedef struct double_arr {int n;double *arr;} double_arr;
 
