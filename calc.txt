@@ -1,0 +1,6 @@
+13.08.2012
+*Add scalar multiplication to '**'.
+Add buffer overflow check.
+Buffer overflow check to push_arr.
+Buffer overflow check to calc_push_stack.
+Buffer underflow check to calc_pop_stack.
