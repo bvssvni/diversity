@@ -85,5 +85,26 @@ void test()
 		TEST(n == 1, printf("%i\r\n", n));
 		TEST(res[0] == 6, printf("%g\r\n", res[0]));
 	}
+	{
+		double_arr a = {.n = 2, .arr = (double[]){0,0}};
+		double_arr b = {.n = 2, .arr = (double[]){1,2}};
+		double_arr args[] = {a,b};
+		double res[2];
+		int n;
+		calc("0++-1", 2, args, &n, res);
+		TEST(n == 2, printf("%i\r\n", n));
+		TEST(res[0] == -1, printf("%g\r\n", res[0]));
+		TEST(res[1] == -2, printf("%g\r\n", res[1]));
+	}
+	{
+		double_arr a = {.n = 2, .arr = (double[]){1,2}};
+		double_arr b = {.n = 1, .arr = (double[]){3}};
+		double_arr args[] = {a,b};
+		double res[1];
+		int n;
+		calc("0-1", 2, args, &n, res);
+		TEST(n == 1, printf("%i\r\n", n));
+		TEST(res[0] == 0, printf("%g\r\n", res[0]));
+	}
 	printf("unit test complete\r\n");
 }
